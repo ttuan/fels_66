@@ -1,0 +1,20 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav>
+      <ul class="nav nav-pills navbar-nav">
+        <li><%= link_to t("links.home"), root_path %></li>
+        <li><%= link_to t("links.word_list"), "#" %></li>
+        <li><%= link_to t("links.categories"), "#" %></li>
+        <li><%= link_to t("links.lesson"), "#" %></li>
+        <li><%= link_to t("links.result"), "#" %></li>
+        <li><%= link_to t("links.user_show"), "#" %></li>
+      </ul>
+    </nav>
+
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to I18n.t "links.login", "#" %></li>
+      </ul>
+    </nav>
+  </div>
+</header>

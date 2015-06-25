@@ -1,0 +1,16 @@
+en:
+  static_pages:
+    base_title: "Framgia E-leaning System"
+    welcome:	"Welcome to the E Learning System"
+    signup: 	"Sign up now!"
+  links:
+    home:       "Home"
+    word_list:  "Word List"
+    categories: "Categories"
+    lesson: 	"Lesson"
+    result: 	"Result"
+    user_show:	"User Show"
+    login:		"Log in"
+    help: 		"Help"
+    contact: 	"Contact"
+    about: 		"About"
