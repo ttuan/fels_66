@@ -7,13 +7,29 @@
         <li><%= link_to t("links.categories"), "#" %></li>
         <li><%= link_to t("links.lesson"), "#" %></li>
         <li><%= link_to t("links.result"), "#" %></li>
-        <li><%= link_to t("links.user_show"), "#" %></li>
       </ul>
     </nav>
-
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to I18n.t "links.login", "#" %></li>
+        <% if logged_in? %>
+          <li><%= link_to t("static_pages.users"), "#" %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= t "static_pages.account" %><b class="carret"></b>
+            </a>
+            
+            <ul class="dropdown-menu">
+              <li><%= link_to t("links.user_show"), "#" %></li>
+              <li><%= link_to t("static_pages.setting"), "#" %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to t("sessions.logout"), logout_path, method: "delete" %>
+              </li>  
+            </ul>
+          </li>
+        <% else %>
+            <li><%= link_to t("links.login"), login_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>
