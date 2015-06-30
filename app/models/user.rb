@@ -16,6 +16,21 @@ class User < ActiveRecord::Base
   has_many :activities, dependent: :destroy
   has_many :lessons, dependent: :destroy
 
+  before_save :downcase_email
+
+  mount_uploader :picture, PictureUploader
+
+  validates :name, presence: true, length: {maximum: Settings.maximum_name_length}
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, length: {maximum: Settings.maximum_email_length},
+                    format: {with: VALID_EMAIL_REGEX},
+                    uniqueness: {case_sensitive: false}
+  has_secure_password
+  validates :password, presence: true, length: {minimum: Settings.minimum_password_length}, allow_nil: true
+  
+  validate  :picture_size
+
   def User.digest string
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
@@ -38,5 +53,16 @@ class User < ActiveRecord::Base
 
   def forget
     update_attributes remember_digest: nil
+  end
+  
+  private
+  def picture_size
+    if picture.size > Settings.image_storage.megabytes
+      errors.add :picture, I18n.t("sign_up.warning")
+    end
+  end
+
+  def downcase_email
+    self.email = email.downcase
   end
 end

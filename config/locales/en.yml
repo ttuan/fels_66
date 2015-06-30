@@ -25,3 +25,5 @@ en:
     new_user: "New User?"
     invalid: "Invalid email/password combination"
     remember: "Remember on this computer"
+    signup: "Sign up"
+    create_account: "Create my account"
