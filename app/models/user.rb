@@ -1,9 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
-  validates :name, presence: true
-  validates :password, presence: true
+  
+  before_save :downcase_email
 
-  has_secure_password
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",
                                   dependent: :destroy
@@ -16,20 +15,16 @@ class User < ActiveRecord::Base
   has_many :activities, dependent: :destroy
   has_many :lessons, dependent: :destroy
 
-  before_save :downcase_email
-
   mount_uploader :picture, PictureUploader
-
+  validate  :picture_size
+  
   validates :name, presence: true, length: {maximum: Settings.maximum_name_length}
-
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: {maximum: Settings.maximum_email_length},
                     format: {with: VALID_EMAIL_REGEX},
                     uniqueness: {case_sensitive: false}
-  has_secure_password
   validates :password, presence: true, length: {minimum: Settings.minimum_password_length}, allow_nil: true
-  
-  validate  :picture_size
+  has_secure_password
 
   def User.digest string
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

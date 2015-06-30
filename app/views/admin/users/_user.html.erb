@@ -1,0 +1,18 @@
+<tr>
+  <td><%= link_to user.name, user %></td>
+  <td><%= link_to "delete", admin_user_path(user), method: :delete,
+                                  data: {confirm: t("admin.delete_confirm")} %></td>
+  <td>
+    <% if user.admin? %>
+      <%= form_for [:admin, user] do |f| %>
+        <%= f.hidden_field :admin, value: false %>
+        <%= f.submit t("admin.set_user_normal"), class: "btn btn-primary" %>
+      <% end %>
+    <% else %>
+      <%= form_for [:admin, user] do |f| %>
+        <%= f.hidden_field :admin, value: true %>
+        <%= f.submit t("admin.set_user_admin"), class: "btn btn-primary" %>
+      <% end %>
+    <% end %> 
+  </td>                                
+</tr>
