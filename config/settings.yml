@@ -1,1 +1,12 @@
+maximum_name_length: 20
+maximum_email_length: 50
+minimum_password_length: 6
+image_size: 50
+image_resize: 400
+image_storage: 5
 remember: 1
+image_type:
+  - jpg
+  - jpeg
+  - gif
+  - png
