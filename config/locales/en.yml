@@ -46,3 +46,12 @@ en:
       user: "User"
       delete: "Delete"
       set_admin: "Set as admin"
+  update:
+    save: "Save changes"
+    show_users: "Users list" 
+    danger: "Please log in."
+    update_profile: "Update your profile"
+    confirmation: "Confirmation"
+    edit_user: "Edit user"
+    success: "Update successfull"
+    fail: "Update fail"

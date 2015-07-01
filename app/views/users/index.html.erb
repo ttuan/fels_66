@@ -1,0 +1,8 @@
+<% provide :title, t("update.show_users") %>
+<h1><%= t("admin.all_user") %></h1>
+
+<%= will_paginate %>
+<ul class="users">
+  <%= render @users %>
+</ul>
+<%= will_paginate %>

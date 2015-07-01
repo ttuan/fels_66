@@ -1,0 +1,35 @@
+<% provide :title, t("update.edit_user") %>
+<h1><%= t("update.update_profile") %></h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @user do |f| %>
+      <%= render "shared/error_messages" %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: "form-control" %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control" %>
+
+      <%= f.label :password_confirmation, t("update.confirmation") %>
+      <%= f.password_field :password_confirmation, class: "form-control" %>
+      <br>
+      <div class="row">
+        <div class="col-md-5">
+          <%= gravatar_for @user, size: Settings.image_size_edit%> 
+        </div>
+        <div class="col-md-7">
+          <span class="picture">
+            <%= f.file_field :picture, accept: Settings.image_type_accept %>
+          </span>
+        </div>
+      </div>
+      <br>
+      <%= f.submit t("update.save"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
