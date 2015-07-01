@@ -1,0 +1,14 @@
+<div id="nav_category">
+  <%= form_for [:admin, @category] do |f| %>
+    <%= f.label :name %>
+    <%= f.text_area :name, class: "form-control" %>
+    <br>
+    <%= f.submit I18n.t "category.create_category", class: "btn btn-primary" %>
+  <% end %>
+</div>
+<div id="section_category">
+  <table style="width:100%">
+    <%= render @categories %>
+  </table>
+  <%= will_paginate %>
+</div>
