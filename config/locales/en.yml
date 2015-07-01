@@ -55,3 +55,6 @@ en:
     edit_user: "Edit user"
     success: "Update successfull"
     fail: "Update fail"
+  category:
+    all_categories: "All Categories"
+    start: "Start"

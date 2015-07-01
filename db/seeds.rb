@@ -14,5 +14,9 @@ User.create!(name: "long",
                password_confirmation: password)
 end
 
-
-
+10.times do |n|
+  name = "category_#{n+1}"
+  Category.create!(name: name,
+                   created_at: Time.zone.now,
+                   updated_at: Time.zone.now)
+end
