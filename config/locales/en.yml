@@ -39,8 +39,8 @@ en:
     set_user_normal: "Set user as normal user"
     set_user_admin: "Set user as admin"
     delete_confirm: "You sure?"  
-    delete_success: "User deleted"
-    update_success: "change setting successful"
+    delete_success: "deleted"
+    update_success: "change setting successfully"
     update_fail: "change setting fail"
     table:
       user: "User"
@@ -58,3 +58,7 @@ en:
   category:
     all_categories: "All Categories"
     start: "Start"
+    create_category: "Create category"
+    create_successfully: "Create category successfully"
+    create_fail: "Create category fail"
+    
