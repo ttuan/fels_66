@@ -6,6 +6,10 @@ en:
     users: "Users"
     account: "Account"
     setting: "Setting"
+    words: "Words"
+    lesson: "Lesson"
+    view_profile: "View my profile"
+    activities: "Activities"
   links:
     home: "Home"
     word_list: "Word List"
@@ -27,6 +31,9 @@ en:
     remember: "Remember on this computer"
     signup: "Sign up"
     create_account: "Create my account"
+    please_log_in: "Please log in"
+    follow: "Follow"
+    unfollow: "Unfollow"
   admin:
     all_user: "User list"
     set_user_normal: "Set user as normal user"
@@ -39,4 +46,3 @@ en:
       user: "User"
       delete: "Delete"
       set_admin: "Set as admin"
-
