@@ -1,0 +1,11 @@
+<% provide :title, t("admin.all_user") %>
+<h1><%= t("admin.all_user") %></h1>
+<table class="table">
+  <tr>
+    <th><%= t("admin.table.user") %></th>
+    <th><%= t("admin.table.delete") %></th>
+    <th><%= t("admin.table.set_admin") %></th>  
+  </tr>
+  <%= render @users %>
+</table>
+<%= will_paginate %>

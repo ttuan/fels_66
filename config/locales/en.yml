@@ -27,3 +27,16 @@ en:
     remember: "Remember on this computer"
     signup: "Sign up"
     create_account: "Create my account"
+  admin:
+    all_user: "User list"
+    set_user_normal: "Set user as normal user"
+    set_user_admin: "Set user as admin"
+    delete_confirm: "You sure?"  
+    delete_success: "User deleted"
+    update_success: "change setting successful"
+    update_fail: "change setting fail"
+    table:
+      user: "User"
+      delete: "Delete"
+      set_admin: "Set as admin"
+
