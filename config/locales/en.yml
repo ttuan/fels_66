@@ -61,4 +61,6 @@ en:
     create_category: "Create category"
     create_successfully: "Create category successfully"
     create_fail: "Create category fail"
-    
+  activity:
+    follow_user: "You follow %{name}"
+    unfollow_user: "You unfollow %{name}"
