@@ -1,0 +1,6 @@
+<tr>
+  <td><%= word.alphabet %><td>
+  <% word.answers.each do |answer| %>
+    <%= answer.ans if answer.status %>
+  <% end %>
+</tr>

@@ -43,6 +43,10 @@ en:
     update_success: "Update successfully"
     update_fail: "change setting fail"
     require_admin: "Only admin can access that page"
+    success: "Change successfully"
+    fail: "Fail to change"
+    manage_users: "Manage Users"
+    manage_categories: "Manage Categories"
     table:
       user: "User"
       delete: "Delete"
@@ -77,3 +81,11 @@ en:
     submit: "Submit"
     update_success: "Update word successfully"
     update_fail: "Update word fail"
+    search_word: "Search a word"
+    search: "Search"
+    word: "Words"
+    mean: "Meaning"
+    list: "Word List"
+    filter: "Filter"
+    csv: "CSV"
+

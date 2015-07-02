@@ -1,0 +1,14 @@
+<%= render "search_a_word" %><br />
+<%= render "search_form" %>
+<div class="container">
+  <h2 style="color:green" align="center"><%= t ("word.list") %></h2>
+  <div class="col-md-9 col-md-offset-2">
+    <table class="table">
+      <tr class="success">
+        <th><%= t "word.word" %></th>
+        <th><%= t "word.mean" %></th>
+      </tr>
+      <%= render @words %>
+    </table>
+  </div>
+</div>
