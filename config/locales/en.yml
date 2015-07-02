@@ -59,8 +59,13 @@ en:
     all_categories: "All Categories"
     start: "Start"
     create_category: "Create category"
-    create_successfully: "Create category successfully"
-    create_fail: "Create category fail"
+    create_successfully: "Create successfully"
+    create_fail: "Create fail"
   activity:
     follow_user: "You follow %{name}"
     unfollow_user: "You unfollow %{name}"
+  dynamic_form:
+    remove: "remove"
+    add: "Add answer"
+  word:
+    create: "Create word"

@@ -35,6 +35,7 @@ module SessionsHelper
     forget current_user
     session.delete :user_id
     @current_user = nil
+    session.delete :category_id
   end
 
   def current_user? user
@@ -48,5 +49,9 @@ module SessionsHelper
 
   def store_location
     session[:forwarding_url] = request.url if request.get?
+  end
+
+  def remenber_category category
+    session[:category_id] = category.id
   end
 end
