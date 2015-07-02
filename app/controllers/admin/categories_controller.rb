@@ -1,6 +1,6 @@
 class Admin::CategoriesController < ApplicationController
   before_action :require_admin
-  before_action :set_category, only: [:show, :destroy]
+  before_action :set_category, only: [:show, :edit, :destroy]
   
   def new
     @category = Category.new
@@ -15,10 +15,15 @@ class Admin::CategoriesController < ApplicationController
     if @category.save
       flash[:success] = t "category.create_successfully"
     else
-      flash[:success] = t "category.create_fail"
+      flash[:fail] = t "category.create_fail"
     end  
     redirect_to new_admin_category_path
   end 
+
+  def edit
+    remenber_category @category
+    redirect_to new_admin_word_path
+  end
 
   def destroy
     @category.destroy
@@ -32,7 +37,7 @@ class Admin::CategoriesController < ApplicationController
   end 
 
   def require_admin
-    unless current_user.admin?
+    unless current_user
       redirect_to root_path
     end
   end
