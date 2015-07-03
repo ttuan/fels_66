@@ -1,0 +1,15 @@
+<%= form_for [:admin, @word] do |f| %>
+  <%= f.label :alphabet %>
+  <%= f.text_area :alphabet, class: "form-control" %>
+  <%= f.hidden_field :category_id, value: session[:category_id] %>
+  <br>
+
+  <table style="width:100%">   
+    <%= f.fields_for :answers do |builder| %>
+      <%= render "answer_fields", :f => builder %>
+    <% end %> 
+  </table>
+
+  <p><%= link_to_add_fields t("dynamic_form.add"), f, :answers %></p>
+  <%= f.submit t("word.submit"), class: "btn btn-primary" %>
+<% end %>

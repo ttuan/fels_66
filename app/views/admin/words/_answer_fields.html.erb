@@ -1,8 +1,5 @@
 <tr>
-  <%= f.fields_for :answers do |f| %>
-    <td><%= f.text_field :ans, class: "form-control" %></td>
-    <td><%= f.check_box :status %></td>
-    <td><%= f.check_box :_destroy %></td>
-    <td><%= link_to_remove_fields t("dynamic_form.remove"), f %></td>
-  <% end %>
+  <td><%= f.text_field :ans, class: "form-control" %></td>
+  <td><%= f.check_box :status %></td>
+  <td><%= link_to_remove_fields t("dynamic_form.remove"), f %></td>
 </tr>

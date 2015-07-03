@@ -1,3 +1,6 @@
 <tr>
-  <%= word.alphabet %>
+  <td><%= word.alphabet %><td>
+  <td><%= link_to t("category.delete"), admin_word_path(word),
+    method: :delete, data: {confirm: t("admin.delete_confirm")} %></td>
+  <td><%= link_to t("category.edit"), edit_admin_word_path(word) %></td>
 </tr>
