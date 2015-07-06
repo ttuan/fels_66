@@ -1,5 +1,21 @@
-<ol>
-  <h1>  
-    <%= activity.content %> 
-  </h1>
-</ol>
+<div class="row">
+  <div class="col-md-9 col-md-offset-2">
+    <hr>
+    <h4>
+      <% type = activity.type %>
+      <%= gravatar_for activity.user %>
+      <b><%= link_to activity.user.name, activity.user %></b>
+      <%= activity.status %>
+      <% if activity.status == Settings.learned %>
+        <%= t "activity.in" %>
+        <b><%= link_to type.category.name, type.category %></b>
+      <% else %>
+        <b><%= link_to type.name, type %></b>
+      <% end %>
+    </h4>
+    <h4>
+      <%= t "activity.at" %> <%= activity.created_at %>
+    </h4>
+    <hr>
+  </div>
+</div>

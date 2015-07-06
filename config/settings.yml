@@ -20,3 +20,6 @@ filter:
   all: "get_all"
   learned: "learned"
   not_learned: "not_learned"
+follow: follow
+unfollow: unfollow
+learned: learned
