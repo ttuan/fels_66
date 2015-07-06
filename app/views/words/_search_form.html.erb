@@ -1,0 +1,24 @@
+<%= form_for words_path, method: :get do |f| %>
+  <div class="row">
+    <div id="search-field">
+      <div class="col-md-3 col-md-offset-3">
+        <%= select_tag "category_id", options_from_collection_for_select(@categories, "id", "name", 
+          params[:category_id]), include_blank: t("word.all")%>
+      </div>
+    </div>
+    <div class="tm-radio">
+      <% [Settings.filter.learned, Settings.filter.not_learned, Settings.filter.all].each do |value| %>
+        <%= label_tag value, class: "radio-inline" do %>
+          <%= radio_button_tag :filter_state, value, 
+            checked = (params[:filter_state] == value || params[:filter_state].blank?) %> 
+          <%= value.titleize %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <br />
+  <div class="tm-submit">
+    <%= f.submit t("word.filter"), class: "btn btn-primary" %>
+  </div>
+  <br /><br />
+<% end %>

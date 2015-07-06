@@ -6,12 +6,12 @@
     <% if user.admin? %>
       <%= form_for [:admin, user] do |f| %>
         <%= f.hidden_field :admin, value: false %>
-        <%= f.submit t("admin.set_user_normal"), class: "btn btn-primary" %>
+        <%= f.submit t("admin.set_user_normal"), class: "btn btn-primary buttonn" %>
       <% end %>
     <% else %>
       <%= form_for [:admin, user] do |f| %>
         <%= f.hidden_field :admin, value: true %>
-        <%= f.submit t("admin.set_user_admin"), class: "btn btn-primary" %>
+        <%= f.submit t("admin.set_user_admin"), class: "btn btn-primary buttonn" %>
       <% end %>
     <% end %> 
   </td>

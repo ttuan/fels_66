@@ -16,3 +16,7 @@ per_page: 10
 image_type_accept: image/jpeg,image/gif,image/png
 maximum_name_category_length: 200
 maximum_alphabet_length: 20
+filter:
+  all: "get_all"
+  learned: "learned"
+  not_learned: "not_learned"
