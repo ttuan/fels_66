@@ -4,7 +4,7 @@ class WordsController < ApplicationController
     @words = if params[:search]
       Word.search_word(params[:search]).recent
     elsif params[:filter_state]
-      Word.filter_category(params[:category_id]).send(params[:filter_state], current_user).recent
+      Word.filter_category(params[:category_id]).send(params[:filter_state], current_user.id).recent
     else
       Word.recent
     end

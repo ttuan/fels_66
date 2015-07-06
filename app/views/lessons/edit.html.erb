@@ -1,0 +1,9 @@
+<% @words.each do |word| %>
+  <%= word.alphabet %>
+  <div>
+    <% word.answers.each do |answer| %>
+      <%= answer.ans %>
+      <%= answer.status %>
+    <% end %>
+  </div>
+<% end %>
