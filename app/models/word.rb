@@ -4,4 +4,6 @@ class Word < ActiveRecord::Base
   has_many :results, dependent: :destroy
 
   accepts_nested_attributes_for :answers, allow_destroy: true
+
+  validates :alphabet, presence: true, length: {maximum: Settings.maximum_alphabet_length}
 end

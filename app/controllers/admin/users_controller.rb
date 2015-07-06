@@ -1,4 +1,6 @@
 class Admin::UsersController < ApplicationController
+  before_action :logged_in_user
+  before_action :require_admin
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   
   def index
@@ -10,9 +12,9 @@ class Admin::UsersController < ApplicationController
 
   def update
     if @user.update_attributes user_params
-      flash[:success] = t "admin.success"
+      flash[:success] = t "word.success"
     else
-      flash[:danger] = t "admin.fail"
+      flash[:danger] = t "word.fail"
     end
     redirect_to admin_root_url
   end
