@@ -1,14 +1,20 @@
 <% provide :title, @user.name %>
+<div class="vertical-line"></div>
 <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-    <p>
-      <%= render "follow_form" if logged_in? %>
-    </p>  
-  </aside>
+  <div class="col-md-3">
+    <aside>
+      <section class="user_info">
+        <%= link_to gravatar_for(@user, size: Settings.image_size100), @user %>
+      </section>
+      <p>
+        <%= render "follow_unfollow_form" if logged_in? %>
+      </p>
+    </aside>
+    <h3><%= @user.name %></h3>
+    <h4><%= link_to t("static_pages.view_profile"), @user %></h4>
+  </div>
 </div>
+<h4 class="activity"><%= t "static_pages.activities" %></h4>
+<hr>
+
+<%= render "shared/feed" if @user.activities.any? %>

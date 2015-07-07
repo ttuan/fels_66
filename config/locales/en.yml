@@ -70,8 +70,8 @@ en:
     edit: "Edit"
     need_category_id: "You need choose a category"    
   activity:
-    follow_user: "You follow %{name}"
-    unfollow_user: "You unfollow %{name}"
+    in: "in"
+    at: "at"
   dynamic_form:
     remove: "remove"
     add: "Add answer"

@@ -8,6 +8,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @feed_activities = @user.activities.recent.paginate page: params[:page],
+      per_page: Settings.per_page
   end
   
   def new

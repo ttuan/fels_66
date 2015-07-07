@@ -44,7 +44,12 @@
 div.vertical-line{
   width: 1px; 
   background-color: black;
-  height: 100%;
+  height: 1500px;
   position: absolute;
   left: 20%;
+}
+
+.activity{
+  margin: -40px 0px 0px 0px;
+  font-size: 40px;
 }
