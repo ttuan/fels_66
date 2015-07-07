@@ -68,7 +68,8 @@ en:
     create_fail: "Create fail"
     delete: "Delete"
     edit: "Edit"
-    need_category_id: "You need choose a category"    
+    need_category_id: "You need choose a category"
+    search_category: "Search category"    
   activity:
     in: "in"
     at: "at"

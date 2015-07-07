@@ -2,7 +2,7 @@ class LessonsController < ApplicationController
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
   
   def create
-    @lesson = current_user.lessons.build lesson_params 
+    @lesson = current_user.lessons.build lesson_params
     if @lesson.save
       flash[:success] = t "lesson.success"
       redirect_to edit_lesson_path @lesson
