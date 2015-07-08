@@ -4,15 +4,15 @@
   <div class="col-md-3">
     <aside>
       <section class="user_info">
-        <%= link_to gravatar_for(current_user, size: Settings.image_size100), current_user %>
+        <%= link_to gravatar_for(current_user, size: Settings.image_size100), current_user.name %>
       </section>
     </aside>
     <h3><%= current_user.name %></h3>
-    <h4><%= link_to t("static_pages.view_profile"), current_user %></h4>
+    <h4><%= link_to t("static_pages.view_profile"), current_user.name %></h4>
   </div>
   <div class="col-md-6 stylebutton" >
-    <%= link_to t("static_pages.words"), "#", class: "action-button shadow animate blue" %>
-    <%= link_to t("static_pages.lesson"), "#", class: "action-button shadow animate green" %>
+    <%= link_to t("static_pages.words"), words_path, class: "action-button shadow animate blue" %>
+    <%= link_to t("static_pages.lesson"), categories_path, class: "action-button shadow animate green" %>
   </div>
 </div>
 <h4 class="activity"><%= t "static_pages.activities" %></h4>

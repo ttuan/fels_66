@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150625095157) do
+ActiveRecord::Schema.define(version: 20150708021821) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "type_id"
@@ -81,7 +81,10 @@ ActiveRecord::Schema.define(version: 20150625095157) do
     t.string   "remember_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "slug"
   end
+
+  add_index "users", ["slug"], name: "index_users_on_slug"
 
   create_table "words", force: :cascade do |t|
     t.string   "alphabet"

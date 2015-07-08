@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = t "static_pages.welcome" 
-      redirect_to @user
+      redirect_to root_url
     else
       render "new"
     end
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes user_params
       flash[:success] = t "update.success"
-      redirect_to @user
+      redirect_to root_url
     else
       flash[:danger] = t "update.fail"
       render "edit"
@@ -55,11 +55,11 @@ class UsersController < ApplicationController
   end
 
   def correct_user
-    @user = User.find params[:id] 
+    @user = User.find_by name: params[:name]
     redirect_to root_url unless current_user? @user
   end
 
   def set_user
-    @user = User.find params[:id]
+    @user = User.find_by name: params[:name]
   end  
 end
