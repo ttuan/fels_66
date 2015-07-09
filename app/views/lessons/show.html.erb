@@ -1,0 +1,8 @@
+<table style="width:50%">
+  <% @results.each do |result| %>
+     <tr>
+      <td><%= result.word.alphabet %></td>
+      <td><%= result.status %></td>
+    </tr> 
+  <% end %>
+</table>

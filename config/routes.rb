@@ -1,4 +1,3 @@
-
 Rails.application.routes.draw do
   root                     "static_pages#home"
   get     "help"       =>   "static_pages#help"
@@ -11,8 +10,9 @@ Rails.application.routes.draw do
   get     "categories" =>   "categories#index"
   resources :words, only: [:index]
   resources :users
+  resources :lessons
   resources :relationships, only: [:create, :destroy]
-  
+
   namespace :admin do
     root "users#index"
     resources :users
