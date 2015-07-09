@@ -24,3 +24,4 @@ follow: follow
 unfollow: unfollow
 learned: learned
 words_per_lesson: 3
+csv: "csv"

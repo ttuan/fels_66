@@ -15,4 +15,15 @@ class Word < ActiveRecord::Base
             WHERE lesson_id IN (SELECT id FROM lessons WHERE user_id = ?))", current_user_id}
   scope :get_all, ->current_user_id{}
   scope :random, ->{order "RANDOM()"}  
+
+  def self.to_csv
+    CSV.generate do |csv|
+      csv << [I18n.t("word.word"), I18n.t("word.mean")]
+      all.each do |word|
+        word.answers.each do |a|  
+          csv << [word.alphabet, a.ans] if a.status
+        end
+      end
+    end
+  end
 end

@@ -9,6 +9,7 @@
         <th><%= t "word.mean" %></th>
       </tr>
       <%= render @words %>
+      <%= link_to t("word.csv"), words_path(format: Settings.csv) %>
     </table>
   </div>
 </div>
