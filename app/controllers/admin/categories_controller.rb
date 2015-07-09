@@ -3,13 +3,8 @@ class Admin::CategoriesController < ApplicationController
   before_action :require_admin
   before_action :set_category, only: [:show, :edit, :destroy]
 
-  def new
-    @category = Category.new
-    @categories = Category.ordered_by_create_at.paginate page: params[:page],
-      per_page: Settings.per_page
-  end
-
-  def show
+  def index
+    @categories = Category.ordered_by_create_at
   end
 
   def create
@@ -18,8 +13,11 @@ class Admin::CategoriesController < ApplicationController
       flash[:success] = t "category.create_successfully"
     else
       flash[:fail] = t "category.create_fail"
-    end  
-    redirect_to new_admin_category_path
+    end
+    respond_to do |format|
+      format.html {redirect_to new_admin_category_path}
+      format.js
+    end
   end
 
   def edit
@@ -30,7 +28,10 @@ class Admin::CategoriesController < ApplicationController
   def destroy
     @category.destroy
     flash[:success] = t "admin.delete_success"
-    redirect_to new_admin_category_path
+    respond_to do |format|
+      format.html {redirect_to new_admin_category_path}
+      format.js
+    end
   end
   
   private

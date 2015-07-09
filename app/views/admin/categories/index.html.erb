@@ -1,5 +1,5 @@
 <div id="nav_category">
-  <%= form_for [:admin, @category] do |f| %>
+  <%= form_for [:admin, Category.new], remote: true do |f| %>
     <%= f.label :name %>
     <%= f.text_area :name, class: "form-control" %>
     <br>
@@ -7,8 +7,5 @@
   <% end %>
 </div>
 <div id="section_category">
-  <table style="width:100%">
-    <%= render @categories %>
-  </table>
-  <%= will_paginate %>
+  <%= render @categories %>
 </div>
