@@ -1,18 +1,20 @@
-class Admin::WordsController < ApplicationController
+  class Admin::WordsController < ApplicationController
   before_action :logged_in_user
   before_action :require_admin
   before_action :require_category_id
   before_action :set_word, only: [:show, :edit, :update, :destroy]
 
-  def new
-    @word = Word.new
+  def index
   end
 
   def create
     @word = Word.new word_params
     if @word.save
       flash[:success] = t "category.create_successfully"
-      redirect_to new_admin_word_path
+      respond_to do |format|
+        format.html {redirect_to new_admin_word_path}
+        format.js
+      end
     else
       flash.now[:danger] = t "category.create_fail" 
       render "new" 
@@ -32,12 +34,18 @@ class Admin::WordsController < ApplicationController
   end  
   
   def destroy
-    @word.destroy
-    flash[:success] = t "admin.delete_success"
-    redirect_to new_admin_word_path
+    if @word.destroy
+      flash[:success] = t "admin.delete_success"
+      respond_to do |format|
+        format.html {redirect_to new_admin_word_path}
+        format.js
+      end
+    else
+      flash[:failed] = t "admin.delete_fail"
+    end
   end
 
-  private 
+  private
   def word_params
     params.require(:word).permit :alphabet, :category_id,
       answers_attributes: [:id, :ans, :status, :_destroy]

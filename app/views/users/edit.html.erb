@@ -20,11 +20,12 @@
       <br>
       <div class="row">
         <div class="col-md-5">
-          <%= gravatar_for @user, size: Settings.image_size_edit%> 
+          <%= gravatar_for @user, size: Settings.image_size_edit %> 
         </div>
         <div class="col-md-7">
           <span class="picture">
-            <%= f.file_field :picture, accept: Settings.image_type_accept %>
+            <%= f.file_field :picture, accept: Settings.image_type_accept,
+              onchange: "PreviewImage();" %>
           </span>
         </div>
       </div>

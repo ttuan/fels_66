@@ -40,6 +40,7 @@ en:
     set_user_admin: "Set user as admin"
     delete_confirm: "You sure?"  
     delete_success: "deleted"
+    delete_fail: "delete failed"
     update_success: "Update successfully"
     update_fail: "change setting fail"
     require_admin: "Only admin can access that page"

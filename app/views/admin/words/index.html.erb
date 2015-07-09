@@ -1,0 +1,6 @@
+<div id="nav_category">
+  <%= render "word_form" %>
+</div>
+<div id="section_word">
+  <%= render Category.find(session[:category_id]).words %>
+</div>

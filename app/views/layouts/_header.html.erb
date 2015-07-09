@@ -14,7 +14,7 @@
         <% if logged_in? %>
           <% if current_user.admin? %>
             <li><%= link_to t("admin.manage_users"), admin_users_path %></li>
-            <li><%= link_to t("admin.manage_categories"), new_admin_category_path %></li>
+            <li><%= link_to t("admin.manage_categories"), admin_categories_path %></li>
           <% end %>
           <li><%= link_to t("static_pages.users"), users_path %></li>
           <li class="dropdown">

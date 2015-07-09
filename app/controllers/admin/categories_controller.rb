@@ -21,19 +21,22 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def edit
-    remenber_category @category
-    redirect_to new_admin_word_path
+    remember_category @category
+    redirect_to admin_words_path
   end
 
   def destroy
-    @category.destroy
-    flash[:success] = t "admin.delete_success"
-    respond_to do |format|
-      format.html {redirect_to new_admin_category_path}
-      format.js
+    if @category.destroy
+      flash[:success] = t "admin.delete_success"
+      respond_to do |format|
+        format.html {redirect_to new_admin_category_path}
+        format.js
+      end
+    else
+      flash[:failed] = t "admin.delete_fail"
     end
   end
-  
+
   private
   def category_params
     params.require(:category).permit :name

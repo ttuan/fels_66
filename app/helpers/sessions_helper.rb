@@ -51,7 +51,7 @@ module SessionsHelper
     session[:forwarding_url] = request.url if request.get?
   end
 
-  def remenber_category category
+  def remember_category category
     session[:category_id] = category.id
   end
 end
