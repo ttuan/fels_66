@@ -92,3 +92,5 @@ en:
   lesson:
     success: "Good luck"  
     fail: "Can't take this lesson"
+    finished: "Finished! Check your result below."
+

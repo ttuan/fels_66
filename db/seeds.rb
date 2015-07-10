@@ -20,3 +20,20 @@ end
                    created_at: Time.zone.now,
                    updated_at: Time.zone.now)
 end
+
+30.times do |n|
+  name = "Word_#{n}"
+  Word.create!(alphabet: name,
+               category_id: 1,
+               created_at: Time.zone.now,
+               updated_at: Time.zone.now)
+
+  4.times do |m|
+    name = "Answer_#{m}"
+    Answer.create!(ans: name,
+                   status: m == 0 ? 1 : 0,
+                   word_id: n,
+                   created_at: Time.zone.now,
+                   updated_at: Time.zone.now)
+  end
+end
