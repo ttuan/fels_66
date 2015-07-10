@@ -265,7 +265,7 @@ input {
   padding:5px;
 }
 
-#section_category {
+#section_category, #section_word {
   width:350px;
   float:left;
   padding:10px;
@@ -279,7 +279,18 @@ input {
   width: 100px
 }
 
-#category_record {
+#category_record, #word_record {
   table-layout: fixed;
-  width:500px;
+  width: 500px;
+}
+
+#users_record {
+  table-layout: fixed;
+  width: 800px;
+}
+
+#user_record {
+  table-layout: fixed;
+  width: 800px;
+  height: 40px;
 }

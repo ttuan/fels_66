@@ -1,18 +1,14 @@
-<tr>
-  <td><%= link_to user.name, user %></td>
-  <td><%= link_to "delete", admin_user_path(user), method: :delete,
-                                  data: {confirm: t("admin.delete_confirm")} %></td>
-  <td>
-    <% if user.admin? %>
-      <%= form_for [:admin, user] do |f| %>
-        <%= f.hidden_field :admin, value: false %>
-        <%= f.submit t("admin.set_user_normal"), class: "btn btn-primary buttonn" %>
+<table id="user_record"> 
+  <tr id="user-<%= user.id%>">
+    <td><%= link_to user.name, user %></td>
+    <td><%= link_to "delete", admin_user_path(user), remote: true, method: :delete,
+                                    data: {confirm: t("admin.delete_confirm")} %></td>
+    <td>
+      <%= form_for [:admin, user], remote: true do |f| %>
+        <%= f.hidden_field :admin, value: !user.admin %>
+        <%= f.submit user.admin? ? t("admin.set_user_normal") : t("admin.set_user_admin"), 
+          class: "btn btn-primary buttonn" %>
       <% end %>
-    <% else %>
-      <%= form_for [:admin, user] do |f| %>
-        <%= f.hidden_field :admin, value: true %>
-        <%= f.submit t("admin.set_user_admin"), class: "btn btn-primary buttonn" %>
-      <% end %>
-    <% end %> 
-  </td>
-</tr>
+    </td>
+  </tr>
+</table>

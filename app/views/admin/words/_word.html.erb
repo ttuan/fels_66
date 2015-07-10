@@ -1,6 +1,8 @@
-<tr>
-  <td><%= word.alphabet %><td>
-  <td><%= link_to t("category.delete"), admin_word_path(word),
-    method: :delete, data: {confirm: t("admin.delete_confirm")} %></td>
-  <td><%= link_to t("category.edit"), edit_admin_word_path(word) %></td>
-</tr>
+<table id="word_record">  
+  <tr id="word-<%= word.id %>">
+    <td><%= word.alphabet %><td>
+    <td><%= link_to t("category.delete"), admin_word_path(word), remote: true,
+      method: :delete, data: {confirm: t("admin.delete_confirm")} %></td>
+    <td><%= link_to t("category.edit"), edit_admin_word_path(word) %></td>
+  </tr>
+</table>

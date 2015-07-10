@@ -8,8 +8,8 @@ class WordsController < ApplicationController
     else
       Word.recent
     end
-
     respond_to do |format|
+      format.js
       format.html
       format.csv {send_data @words.to_csv}
     end

@@ -14,15 +14,25 @@ class Admin::UsersController < ApplicationController
     if @user.update_attributes user_params
       flash[:success] = t "word.success"
     else
-      flash[:danger] = t "word.fail"
+      flash[:failed] = t "word.fail"
     end
-    redirect_to admin_root_url
+    respond_to do |format|
+      format.html {redirect_to admin_root_url}
+      format.js
+    end
   end
 
   def destroy
-    @user.destroy
-    flash[:success] = t "admin.delete_success"
-    redirect_to admin_root_url
+    if @user.destroy
+      flash[:success] = t "admin.delete_success"
+      @users = User.all
+      respond_to do |format|
+        format.html {redirect_to admin_root_url}
+        format.js
+      end
+    else
+      flash[:failed] = t "admin.delete_fail"
+    end
   end
 
   private
@@ -32,5 +42,5 @@ class Admin::UsersController < ApplicationController
 
   def set_user
     @user = User.find params[:id]
-  end  
+  end
 end
