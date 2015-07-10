@@ -23,5 +23,7 @@ filter:
 follow: follow
 unfollow: unfollow
 learned: learned
-words_per_lesson: 3
 csv: "csv"
+words_per_lesson: 4
+answer_count: 1
+

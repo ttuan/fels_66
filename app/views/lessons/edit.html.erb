@@ -1,9 +1,22 @@
-<% @words.each do |word| %>
-  <%= word.alphabet %>
-  <div>
-    <% word.answers.each do |answer| %>
-      <%= answer.ans %>
-      <%= answer.status %>
+<div class="container-fluid">
+  <div class="row" id="results">
+    <div class="col-md-8 col-md-offset-4">
+      <div class="row">
+        <div class="col-md-4">
+          <h2><%= @lesson.category.name %></h2>
+        </div>
+        <div class="col-md-4">
+          <h2>
+            <span id="answer_count"><%= Settings.answer_count %></span>/
+            <span id="total"><%= @lesson.results.count %></span>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <%= form_for @lesson, html: {id: "question_form"} do |f| %>
+      <%= f.fields_for :results, wrapper: false do |rf| %>
+        <%= render "answer_form", form: rf %>
+      <% end %>
     <% end %>
   </div>
-<% end %>
+</div>
