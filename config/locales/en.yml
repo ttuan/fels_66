@@ -88,7 +88,7 @@ en:
     mean: "Meaning"
     list: "Word List"
     filter: "Filter"
-    csv: "CSV"
+    csv: "Download CSV"
   lesson:
     success: "Good luck"  
     fail: "Can't take this lesson"
