@@ -1,9 +1,10 @@
 <div id="nav_category">
   <%= form_for [:admin, Category.new], remote: true do |f| %>
+  	<%= render "shared/error_messages", object: f.object %>
     <%= f.label :name %>
     <%= f.text_area :name, class: "form-control" %>
     <br>
-    <%= f.submit I18n.t "category.create_category", class: "btn btn-primary" %>
+    <%= f.submit t "admin.create", class: "btn btn-primary" %>
   <% end %>
 </div>
 <div id="section_category">

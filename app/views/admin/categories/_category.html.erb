@@ -3,8 +3,8 @@
     <td style="width:300px">
       <%= link_to category.name, admin_category_path(category) %>
     </td>
-    <td><%= link_to t("category.delete"), admin_category_path(category), remote: true,
+    <td><%= link_to t("admin.delete"), admin_category_path(category), remote: true,
       method: :delete, data: {confirm: t("admin.delete_confirm")} %></td>
-    <td><%= link_to t("category.edit"), edit_admin_category_path(category) %></td>
+    <td><%= link_to t("admin.edit"), edit_admin_category_path(category) %></td>
   </tr>
 </table>  

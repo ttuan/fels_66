@@ -1,3 +1,18 @@
 <div id="nav_category">
-  <%= render "word_form" %>
+  <%= form_for [:admin, @word] do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <%= f.label :alphabet %>
+    <%= f.text_area :alphabet, class: "form-control" %>
+    <%= f.hidden_field :category_id, value: session[:category_id] %>
+    <br>
+
+    <table>   
+      <%= f.fields_for :answers do |builder| %>
+        <%= render "answer_fields", :f => builder %>
+      <% end %> 
+    </table>
+
+    <p><%= link_to_add_fields t("dynamic_form.add"), f, :answers %></p>
+    <%= f.submit t("word.submit"), class: "btn btn-primary" %>
+  <% end %>
 </div>
