@@ -4,20 +4,17 @@
   before_action :require_category_id
   before_action :set_word, only: [:show, :edit, :update, :destroy]
 
-  def index
-  end
-
   def create
     @word = Word.new word_params
     if @word.save
-      flash[:success] = t "category.create_successfully"
+      flash[:success] = t "admin.create_successfully"
       respond_to do |format|
-        format.html {redirect_to new_admin_word_path}
+        format.html {redirect_to admin_words_path}
         format.js
       end
     else
-      flash.now[:danger] = t "category.create_fail" 
-      render "new" 
+      flash[:danger] = t "admin.create_fail" 
+      render "index" 
     end 
   end
 
@@ -26,22 +23,22 @@
 
   def update
     if @word.update_attributes word_params
-      flash[:success] = t "admin.update_success"
+      flash[:success] = t "admin.update_successfully"
     else
-      flash[:danger] = t "admin.fail"
+      flash[:danger] = t "admin.update_fail"
     end
-    redirect_to new_admin_word_path
+    redirect_to admin_words_path
   end  
   
   def destroy
     if @word.destroy
-      flash[:success] = t "admin.delete_success"
-      respond_to do |format|
-        format.html {redirect_to new_admin_word_path}
-        format.js
-      end
+      flash[:success] = t "admin.destroy_successfully"  
     else
-      flash[:failed] = t "admin.delete_fail"
+      flash[:failed] = t "admin.destroy_fail"
+    end
+    respond_to do |format|
+      format.html {redirect_to admin_words_path}
+      format.js
     end
   end
 
@@ -57,8 +54,8 @@
 
   def require_category_id
     unless !session[:category_id].nil?
-      flash[:danger] = t "category.need_category_id"
-      redirect_to new_admin_category_path
+      flash[:danger] = t "admin.word.need_category_id"
+      redirect_to admin_categories_path
     end
   end
 end

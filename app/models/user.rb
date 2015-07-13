@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
   private
   def picture_size
     if picture.size > Settings.image_storage.megabytes
-      errors.add :picture, I18n.t("sign_up.warning")
+      errors.add :picture, t("sign_up.warning")
     end
   end
 

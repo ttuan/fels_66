@@ -10,7 +10,8 @@
         <%= render "follow_unfollow_form" if logged_in? %>
       </p>
     </aside>
-    <h3><%= @user.name %></h3>
+    <b><%= @user.name %></b>
+    <b><%= t("static_pages.Learned_word", number_word: @results.count) %></b>
     <h4><%= link_to t("static_pages.view_profile"), @user %></h4>
   </div>
 </div>

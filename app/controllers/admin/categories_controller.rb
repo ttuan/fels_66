@@ -4,15 +4,15 @@ class Admin::CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :destroy]
 
   def index
-    @categories = Category.ordered_by_create_at
+    @categories = Category.recent
   end
 
   def create
     @category = Category.new category_params
     if @category.save
-      flash[:success] = t "category.create_successfully"
+      flash[:success] = t "admin.create_successfully"
     else
-      flash[:fail] = t "category.create_fail"
+      flash[:failed] = t "admin.create_fail"
     end
     respond_to do |format|
       format.html {redirect_to new_admin_category_path}
@@ -27,13 +27,13 @@ class Admin::CategoriesController < ApplicationController
 
   def destroy
     if @category.destroy
-      flash[:success] = t "admin.delete_success"
-      respond_to do |format|
-        format.html {redirect_to new_admin_category_path}
-        format.js
-      end
+      flash[:success] = t "admin.destroy_successfully"
     else
-      flash[:failed] = t "admin.delete_fail"
+      flash[:failed] = t "admin.destroy_fail"
+    end
+    respond_to do |format|
+      format.html {redirect_to new_admin_category_path}
+      format.js  
     end
   end
 

@@ -1,6 +1,10 @@
 class LessonsController < ApplicationController
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
   
+  def index
+    @lessons = current_user.lessons
+  end
+
   def create
     @lesson = current_user.lessons.build lesson_params
     if @lesson.save

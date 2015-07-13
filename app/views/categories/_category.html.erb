@@ -1,7 +1,13 @@
 <li class="category-<%= category.id %>">
   <div class="row">
     <span class="col-md-10">
-      <div class="categoryName"><%= category.name %> </div>
+      <div class="categoryName">
+        <b><%= category.name %></b> 
+        <b id="category_learned">
+          <%= t("category.learned", learned: category.words.learned(current_user.id).count,
+          all: category.words.count) %>
+        </b>
+      </div>
     </span>
     <span>
       <%= form_for Lesson.new do |f| %>

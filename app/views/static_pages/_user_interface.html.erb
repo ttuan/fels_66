@@ -7,7 +7,8 @@
         <%= link_to gravatar_for(current_user, size: Settings.image_size100), current_user %>
       </section>
     </aside>
-    <h3><%= current_user.name %></h3>
+    <b><%= current_user.name %></b>
+    <b><%= t("static_pages.Learned_word", number_word: @results.count) %></b>
     <h4><%= link_to t("static_pages.view_profile"), current_user %></h4>
   </div>
   <div class="col-md-6 stylebutton" >

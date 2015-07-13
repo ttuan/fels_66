@@ -1,8 +1,8 @@
 <table id="user_record"> 
   <tr id="user-<%= user.id%>">
     <td><%= link_to user.name, user %></td>
-    <td><%= link_to "delete", admin_user_path(user), remote: true, method: :delete,
-                                    data: {confirm: t("admin.delete_confirm")} %></td>
+    <td><%= link_to t("admin.delete"), admin_user_path(user), remote: true, method: :delete,
+      data: {confirm: t("admin.delete_confirm")} %></td>
     <td>
       <%= form_for [:admin, user], remote: true do |f| %>
         <%= f.hidden_field :admin, value: !user.admin %>

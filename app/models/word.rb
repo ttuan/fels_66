@@ -2,7 +2,8 @@ class Word < ActiveRecord::Base
   has_many :answers, dependent: :destroy
   has_many :results, dependent: :destroy
 
-  accepts_nested_attributes_for :answers, allow_destroy: true
+  accepts_nested_attributes_for :answers, allow_destroy: true, 
+    reject_if: proc {|attributes| attributes[:ans].blank?}
 
   validates :alphabet, presence: true, length: {maximum: Settings.maximum_alphabet_length}
 
@@ -18,7 +19,7 @@ class Word < ActiveRecord::Base
 
   def self.to_csv
     CSV.generate do |csv|
-      csv << [I18n.t("word.word"), I18n.t("word.mean")]
+      csv << [t("word.word"), t("word.mean")]
       all.each do |word|
         word.answers.each do |a|  
           csv << [word.alphabet, a.ans] if a.status
