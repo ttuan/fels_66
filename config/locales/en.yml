@@ -100,3 +100,5 @@ en:
     from: "Learn %{number_word} words from"
     at: "at"  
     lessons_list: "Learned-lesson list"
+  user:
+    signup: "Sign up"

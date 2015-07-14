@@ -7,8 +7,8 @@
     <br>
 
     <table>   
-      <%= f.fields_for :answers do |builder| %>
-        <%= render "answer_fields", :f => builder %>
+      <%= f.fields_for :answers do |answer| %>
+        <%= render "answer_fields", f: answer %>
       <% end %> 
     </table>
 

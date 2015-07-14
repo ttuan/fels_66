@@ -5,10 +5,10 @@
   <%= f.hidden_field :category_id, value: session[:category_id] %>
   <br>
 
-  <table style="width:100%">   
+  <table>   
     <%= f.fields_for :answers do |builder| %>
-      <%= render "answer_fields", :f => builder %>
-    <% end %> 
+      <%= render "answer_fields", f: builder %>
+    <% end %>
   </table>
 
   <p><%= link_to_add_fields t("dynamic_form.add"), f, :answers %></p>

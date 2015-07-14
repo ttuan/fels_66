@@ -1,5 +1,5 @@
 <div class="tm-radio">
-  <% [Settings.filter.learned, Settings.filter.not_learned, Settings.filter.all].each do |value| %>
+  <% Settings.filter.each do |key, value| %>
     <%= label_tag value, class: "radio-inline" do %>
       <%= radio_button_tag :filter_state, value, 
         checked = (params[:filter_state] == value || params[:filter_state].blank?) %> 

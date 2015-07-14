@@ -93,3 +93,8 @@
   position: absolute;
   margin-left: 40%;
 }
+
+.word-list {
+  color: green;
+  align: center;
+}

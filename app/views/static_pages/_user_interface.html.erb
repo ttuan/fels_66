@@ -12,8 +12,8 @@
     <h4><%= link_to t("static_pages.view_profile"), current_user %></h4>
   </div>
   <div class="col-md-6 stylebutton" >
-    <%= link_to t("static_pages.words"), "#", class: "action-button shadow animate blue" %>
-    <%= link_to t("static_pages.lesson"), "#", class: "action-button shadow animate green" %>
+    <%= link_to t("static_pages.words"), words_path, class: "action-button shadow animate blue" %>
+    <%= link_to t("static_pages.lesson"), categories_path, class: "action-button shadow animate green" %>
   </div>
 </div>
 <h4 class="activity"><%= t "static_pages.activities" %></h4>

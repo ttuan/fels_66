@@ -7,7 +7,7 @@
       <%= form_for [:admin, user], remote: true do |f| %>
         <%= f.hidden_field :admin, value: !user.admin %>
         <%= f.submit user.admin? ? t("admin.set_user_normal") : t("admin.set_user_admin"), 
-          class: "btn btn-primary buttonn" %>
+          class: "btn btn-primary small-button" %>
       <% end %>
     </td>
   </tr>

@@ -13,11 +13,11 @@
   </div>
 </div>
 
-<table style="width:50%">
+<table class="results-show">
   <% @results.each do |result| %>
-     <tr>
+    <tr>
       <td><%= result.word.alphabet %></td>
       <td><%= result.status %></td>
-    </tr> 
+    </tr>
   <% end %>
 </table>

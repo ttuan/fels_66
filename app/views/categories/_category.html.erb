@@ -5,14 +5,14 @@
         <b><%= category.name %></b> 
         <b id="category_learned">
           <%= t("category.learned", learned: category.words.learned(current_user.id).count,
-          all: category.words.count) %>
+            all: category.words.count) %>
         </b>
       </div>
     </span>
     <span>
       <%= form_for Lesson.new do |f| %>
         <%= f.hidden_field :category_id, value: category.id %>
-        <%= f.submit t("category.start"), class: "btn btn-primary" %>
+        <%= f.submit t("category.start"), class: "btn btn-primary small-button" %>
       <% end %> 
     </span>
   </div>
